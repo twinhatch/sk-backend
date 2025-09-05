@@ -445,10 +445,15 @@ module.exports = {
   },
   fileUpload: async (req, res) => {
     try {
-      let key = req.file && req.file.key;
+      // let key = req.file && req.file.key;
+      // return response.ok(res, {
+      //   message: "File uploaded.",
+      //   file: `${process.env.ASSET_ROOT}/${key}`,
+      // });
+      console.log(req)
       return response.ok(res, {
         message: "File uploaded.",
-        file: `${process.env.ASSET_ROOT}/${key}`,
+        file: req.file.path,
       });
     } catch (error) {
       return response.error(res, error);
